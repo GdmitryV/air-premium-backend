@@ -73,7 +73,7 @@ app.delete("/api/products/:id", (req, res) => {
 app.post("/api/upload", upload.single("image"), (req, res) => {
   const file = req.file;
   if (!file) return res.status(400).send("No file");
-  const url = `http://localhost:${PORT}/uploads/${file.filename}`;
+  const url = `http://air-premium74.ru/:${PORT}/uploads/${file.filename}`;
   res.status(201).json({ url });
 });
 
@@ -139,5 +139,5 @@ app.post("/api/order", async (req, res) => {
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+  console.log(`Backend running on http://air-premium74.ru/:${PORT}`);
 });
