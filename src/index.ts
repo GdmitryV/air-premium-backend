@@ -3,6 +3,7 @@ import cors from "cors";
 import fs from "fs";
 import path from "path";
 import multer from "multer";
+import { v4 as uuidv4 } from "uuid";
 
 const app = express();
 const PORT = 5000;
@@ -43,7 +44,7 @@ app.get("/api/products", (req, res) => {
 app.post("/api/products", (req, res) => {
   const products = readProducts();
   const { name, price, description, image } = req.body;
-  const newProduct = { id: Date.now(), name, price, description, image };
+  const newProduct = { id: uuidv4(), name, price, description, image };
   products.push(newProduct);
   console.log(`post: body=${req.body} - ${products}`);
   writeProducts(products);
@@ -51,14 +52,26 @@ app.post("/api/products", (req, res) => {
 });
 
 app.put("/api/products/:id", (req, res) => {
-  const id = +req.params.id;
+  const id = req.params.id;
   const products = readProducts();
+
   const index = products.findIndex((p) => p.id === id);
-  if (index === -1) return res.status(404).send("Not found");
-  products[index] = { ...products[index], ...req.body };
-  console.log(`put: ${id} - ${products}`);
+
+  if (index === -1) {
+    return res.status(404).json({ error: "Product not found" });
+  }
+
+  const updatedProduct = {
+    ...products[index],
+    ...req.body,
+    id,
+  };
+
+  products[index] = updatedProduct;
   writeProducts(products);
-  res.json(products[index]);
+
+  console.log(`PUT /api/products/${id}`, updatedProduct);
+  res.json(updatedProduct);
 });
 
 app.delete("/api/products/:id", (req, res) => {
