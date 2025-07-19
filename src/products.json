@@ -4,35 +4,35 @@
     "name": "Eco Tumbler",
     "price": 1599,
     "description": "Термокружка из нержавеющей стали, сохраняет тепло до 6 часов",
-    "image": "http://air-premium74.ru/uploads/1752909834488-images.jpeg"
+    "image": "http://air-premium74.ru:5000/uploads/1752909834488-images.jpeg"
   },
   {
     "id": "2",
     "name": "Блокнот в клетку",
     "price": 299,
     "description": "Удобный блокнот для заметок, формат A5, 100 листов",
-    "image": "http://air-premium74.ru/uploads/1752909863443-images.jpeg"
+    "image": "http://air-premium74.ru:5000/uploads/1752909863443-images.jpeg"
   },
   {
     "id": "3",
     "name": "Сумка-шоппер",
     "price": 899,
     "description": "Хлопковая сумка для покупок, многоразовая, 38×42 см",
-    "image": "http://air-premium74.ru/uploads/1752909834488-images.jpeg"
+    "image": "http://air-premium74.ru:5000/uploads/1752909834488-images.jpeg"
   },
   {
     "id": "4",
     "name": "Кружка с принтом",
     "price": 499,
     "description": "Керамическая кружка 330 мл, можно мыть в посудомоечной машине",
-    "image": "http://air-premium74.ru/uploads/1752909834488-images.jpeg"
+    "image": "http://air-premium74.ru:5000/uploads/1752909834488-images.jpeg"
   },
   {
     "id": "5",
     "name": "USB флешка 32 ГБ",
     "price": 699,
     "description": "Флеш-накопитель USB 3.0, высокая скорость передачи данных",
-    "image": "http://air-premium74.ru/uploads/1752909834488-images.jpeg"
+    "image": "http://air-premium74.ru:5000/uploads/1752909834488-images.jpeg"
   },
   {
     "id": 1752910077542,

@@ -45,6 +45,7 @@ app.post("/api/products", (req, res) => {
   const { name, price, description, image } = req.body;
   const newProduct = { id: Date.now(), name, price, description, image };
   products.push(newProduct);
+  console.log(`post: body=${req.body} - ${products}`);
   writeProducts(products);
   res.status(201).json(newProduct);
 });
@@ -55,6 +56,7 @@ app.put("/api/products/:id", (req, res) => {
   const index = products.findIndex((p) => p.id === id);
   if (index === -1) return res.status(404).send("Not found");
   products[index] = { ...products[index], ...req.body };
+  console.log(`put: ${id} - ${products}`);
   writeProducts(products);
   res.json(products[index]);
 });
@@ -66,6 +68,7 @@ app.delete("/api/products/:id", (req, res) => {
   products = products.filter((p) => p.id !== id);
   if (products.length === initialLength)
     return res.status(404).send("Not found");
+  console.log(`delete: ${id} - ${products}`);
   writeProducts(products);
   res.status(204).end();
 });
@@ -73,7 +76,7 @@ app.delete("/api/products/:id", (req, res) => {
 app.post("/api/upload", upload.single("image"), (req, res) => {
   const file = req.file;
   if (!file) return res.status(400).send("No file");
-  const url = `http://air-premium74.ru/:${PORT}/uploads/${file.filename}`;
+  const url = `http://air-premium74.ru:${PORT}/uploads/${file.filename}`;
   res.status(201).json({ url });
 });
 
